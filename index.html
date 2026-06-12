@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Shop - Honest, professional auto repair in Hamilton, OH. Oil changes, brake repair, engine diagnostics, and more. Call (513) 868-2467.">
+<meta name="keywords" content="auto repair Hamilton OH, mechanic Hamilton Ohio, oil change, brake repair, engine diagnostics, The Shop auto">
+<title>The Shop – Honest Auto Repair You Can Trust | Hamilton, OH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A1628;
+    --blue: #1E4D8C;
+    --blue-light: #2563B0;
+    --blue-pale: #EEF4FF;
+    --red: #C41E3A;
+    --red-dark: #A01830;
+    --white: #FFFFFF;
+    --gray-50: #F5F7FA;
+    --gray-100: #E8ECF2;
+    --gray-300: #B0BBC8;
+    --gray-500: #6B7A8D;
+    --gray-700: #374151;
+    --silver: #8C9BAB;
+    --font: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); color: var(--navy); background: var(--white); line-height: 1.6; }
+
+  /* ── NAVIGATION ── */
+  .topbar {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    font-size: 0.82rem;
+    padding: 8px 16px;
+    letter-spacing: 0.02em;
+  }
+  .topbar a { color: #7EB3FF; text-decoration: none; }
+  nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--red);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(10,22,40,.12);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px; height: 68px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    font-weight: 900; font-size: 1.4rem; color: var(--navy);
+    text-decoration: none; letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--red); }
+  .logo-icon {
+    width: 42px; height: 42px; background: var(--navy);
+    border-radius: 8px; display: grid; place-items: center;
+  }
+  .logo-icon svg { fill: var(--white); }
+  .nav-links { display: flex; gap: 6px; list-style: none; }
+  .nav-links a {
+    display: block; padding: 8px 14px; border-radius: 6px;
+    font-size: 0.9rem; font-weight: 600; color: var(--gray-700);
+    text-decoration: none; transition: background .15s, color .15s;
+  }
+  .nav-links a:hover, .nav-links a.active { background: var(--blue-pale); color: var(--blue); }
+  .nav-cta {
+    background: var(--red); color: var(--white) !important;
+    border-radius: 8px !important; padding: 9px 18px !important;
+  }
+  .nav-cta:hover { background: var(--red-dark) !important; color: var(--white) !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    background: none; border: none; padding: 6px;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: .2s; }
+  .mobile-menu {
+    display: none; background: var(--white); border-top: 1px solid var(--gray-100);
+    padding: 12px 20px 20px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block; padding: 11px 0; font-weight: 600; font-size: 1rem;
+    color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gray-100);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+
+  /* ── PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font); font-weight: 700; border-radius: 10px;
+    cursor: pointer; transition: transform .15s, box-shadow .15s, background .15s;
+    text-decoration: none; border: none; font-size: 1rem;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+  .btn-primary { background: var(--red); color: var(--white); padding: 14px 28px; }
+  .btn-primary:hover { background: var(--red-dark); }
+  .btn-secondary { background: transparent; color: var(--white); padding: 13px 27px; border: 2px solid rgba(255,255,255,.6); }
+  .btn-secondary:hover { background: rgba(255,255,255,.1); }
+  .btn-blue { background: var(--blue); color: var(--white); padding: 12px 24px; font-size: .9rem; }
+  .btn-blue:hover { background: var(--blue-light); }
+  .btn-outline { background: transparent; color: var(--blue); padding: 11px 23px; border: 2px solid var(--blue); font-size: .9rem; }
+  .btn-outline:hover { background: var(--blue-pale); }
+  .btn-sm { font-size: .85rem; padding: 10px 20px; }
+
+  /* ── SECTION HELPERS ── */
+  .section { padding: 72px 20px; }
+  .section-sm { padding: 48px 20px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    display: inline-block; font-size: .75rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.6rem); font-weight: 900;
+    line-height: 1.15; letter-spacing: -.025em; color: var(--navy); margin-bottom: 16px;
+  }
+  .section-sub { font-size: 1.05rem; color: var(--gray-500); max-width: 560px; }
+  .text-center { text-align: center; }
+  .text-center .section-sub { margin: 0 auto; }
+
+  /* ── HOME: HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative; overflow: hidden;
+    padding: 80px 20px 72px;
+    min-height: 560px;
+    display: flex; align-items: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,.018) 40px,
+      rgba(255,255,255,.018) 42px
+    );
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--red), #E05C3A, var(--red));
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50px; padding: 6px 16px; margin-bottom: 24px;
+    font-size: .8rem; font-weight: 600; color: #A8C4E8; letter-spacing: .04em;
+  }
+  .hero-badge-dot { width: 8px; height: 8px; background: #4ADE80; border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.2)} }
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 900; line-height: 1.08; letter-spacing: -.03em;
+    color: var(--white); margin-bottom: 20px; max-width: 680px;
+  }
+  .hero h1 em { color: #7EB3FF; font-style: normal; }
+  .hero-sub { font-size: 1.1rem; color: #A8C4E8; max-width: 520px; margin-bottom: 36px; line-height: 1.7; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 52px; }
+  .hero-stats {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    padding-top: 36px; border-top: 1px solid rgba(255,255,255,.12);
+  }
+  .hero-stat-num { font-size: 2rem; font-weight: 900; color: var(--white); letter-spacing: -.03em; }
+  .hero-stat-label { font-size: .8rem; color: #7B9BBF; font-weight: 500; margin-top: 2px; }
+  .hero-phone {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 1.65rem; font-weight: 900; color: var(--white);
+    text-decoration: none; margin-bottom: 8px; letter-spacing: -.02em;
+  }
+  .hero-phone-icon { background: var(--red); border-radius: 8px; width: 36px; height: 36px; display: grid; place-items: center; flex-shrink: 0; }
+  .hero-hours { font-size: .82rem; color: #7B9BBF; margin-bottom: 28px; }
+
+  /* ── HOME: TRUST BAR ── */
+  .trust-bar { background: var(--blue); padding: 28px 20px; }
+  .trust-bar-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 48px;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--white); font-weight: 600; font-size: .9rem;
+  }
+  .trust-item svg { opacity: .85; flex-shrink: 0; }
+
+  /* ── HOME: SERVICES OVERVIEW ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px; margin-top: 44px;
+  }
+  .service-card {
+    background: var(--white); border: 1.5px solid var(--gray-100);
+    border-radius: 14px; padding: 28px 24px;
+    transition: border-color .2s, box-shadow .2s, transform .2s;
+    cursor: pointer;
+  }
+  .service-card:hover {
+    border-color: var(--blue); box-shadow: 0 8px 32px rgba(30,77,140,.1);
+    transform: translateY(-3px);
+  }
+  .service-icon {
+    width: 48px; height: 48px; background: var(--blue-pale);
+    border-radius: 12px; display: grid; place-items: center; margin-bottom: 16px;
+  }
+  .service-icon svg { stroke: var(--blue); }
+  .service-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
+  .service-card p { font-size: .88rem; color: var(--gray-500); line-height: 1.6; }
+  .service-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: .82rem; font-weight: 700; color: var(--blue);
+    text-decoration: none; margin-top: 12px;
+  }
+
+  /* ── HOME: WHY CHOOSE US ── */
+  .why-bg { background: var(--gray-50); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px; margin-top: 44px;
+  }
+  .why-card {
+    background: var(--white); border-radius: 14px; padding: 28px 24px;
+    box-shadow: 0 2px 12px rgba(10,22,40,.06);
+  }
+  .why-num {
+    font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+    color: var(--red); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .why-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+  .why-card p { font-size: .88rem; color: var(--gray-500); line-height: 1.65; }
+
+  /* ── HOME: REVIEWS ── */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; margin-top: 44px;
+  }
+  .review-card {
+    background: var(--white); border: 1.5px solid var(--gray-100);
+    border-radius: 14px; padding: 24px;
+  }
+  .review-stars { color: #F59E0B; font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+  .review-text { font-size: .9rem; color: var(--gray-700); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+  .review-author { display: flex; align-items: center; gap: 10px; }
+  .review-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: grid; place-items: center; font-weight: 800;
+    font-size: .9rem; color: var(--white); flex-shrink: 0;
+  }
+  .review-name { font-weight: 700; font-size: .88rem; }
+  .review-meta { font-size: .77rem; color: var(--gray-500); }
+  .review-google {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: .73rem; color: var(--gray-500); margin-top: 4px; font-weight: 500;
+  }
+
+  /* ── HOME: MAP CTA ── */
+  .map-section { background: var(--navy); padding: 64px 20px; }
+  .map-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .map-embed { border-radius: 16px; overflow: hidden; height: 320px; border: 2px solid rgba(255,255,255,.1); }
+  .map-embed iframe { width: 100%; height: 100%; border: none; filter: brightness(.9) saturate(.8); }
+  .map-info h2 { font-size: 2rem; font-weight: 900; color: var(--white); margin-bottom: 20px; letter-spacing: -.025em; }
+  .map-detail { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+  .map-detail-icon { width: 36px; height: 36px; background: rgba(255,255,255,.1); border-radius: 8px; display: grid; place-items: center; flex-shrink: 0; }
+  .map-detail-icon svg { stroke: #7EB3FF; }
+  .map-detail-text { font-size: .9rem; color: #A8C4E8; line-height: 1.6; }
+  .map-detail-text strong { color: var(--white); display: block; font-size: .95rem; }
+
+  /* ── SERVICES PAGE ── */
+  .services-hero { background: linear-gradient(135deg, var(--navy) 0%, #142342 100%); padding: 60px 20px 50px; }
+  .services-hero h1 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; color: var(--white); letter-spacing: -.03em; }
+  .services-hero p { color: #A8C4E8; margin-top: 12px; font-size: 1.05rem; }
+  .service-detail-grid { display: grid; gap: 32px; margin-top: 48px; }
+  .service-detail-card {
+    background: var(--white); border: 1.5px solid var(--gray-100);
+    border-radius: 16px; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 2fr;
+    transition: box-shadow .2s;
+  }
+  .service-detail-card:hover { box-shadow: 0 8px 40px rgba(10,22,40,.1); }
+  .service-detail-left {
+    background: var(--navy); padding: 32px 24px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .service-detail-right { padding: 32px; }
+  .service-detail-left h3 { font-size: 1.25rem; font-weight: 900; color: var(--white); line-height: 1.2; margin-top: 16px; }
+  .service-detail-right p { color: var(--gray-500); font-size: .92rem; line-height: 1.75; margin-bottom: 20px; }
+  .benefits-list { list-style: none; margin-bottom: 24px; display: grid; gap: 8px; }
+  .benefits-list li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: .88rem; font-weight: 600; color: var(--gray-700);
+  }
+  .benefits-list li::before { content: '✓'; color: var(--blue); font-weight: 900; font-size: .9rem; }
+
+  /* ── ABOUT PAGE ── */
+  .about-hero { background: linear-gradient(135deg, var(--navy), #142342); padding: 60px 20px 50px; }
+  .about-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-story-img {
+    border-radius: 16px; overflow: hidden; height: 400px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .about-story-img-inner { text-align: center; color: rgba(255,255,255,.4); }
+  .about-story-img-inner svg { opacity: .3; }
+  .about-story-img-inner p { font-size: .85rem; margin-top: 8px; }
+  .about-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0; }
+  .about-stat { text-align: center; background: var(--blue-pale); border-radius: 12px; padding: 24px; }
+  .about-stat-num { font-size: 2.2rem; font-weight: 900; color: var(--blue); letter-spacing: -.03em; }
+  .about-stat-label { font-size: .8rem; color: var(--gray-500); font-weight: 600; margin-top: 4px; }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; margin-top: 40px; }
+  .team-card { border-radius: 14px; overflow: hidden; border: 1.5px solid var(--gray-100); }
+  .team-photo { height: 200px; background: linear-gradient(135deg, var(--blue-pale), var(--gray-100)); display: grid; place-items: center; }
+  .team-photo svg { stroke: var(--blue); opacity: .4; }
+  .team-info { padding: 16px; }
+  .team-info h4 { font-weight: 800; font-size: .95rem; }
+  .team-info p { font-size: .8rem; color: var(--gray-500); margin-top: 3px; }
+  .mission-box {
+    background: var(--navy); border-radius: 16px; padding: 48px 40px; margin-top: 48px;
+    text-align: center;
+  }
+  .mission-box p { font-size: 1.25rem; font-style: italic; color: #A8C4E8; line-height: 1.7; max-width: 680px; margin: 0 auto; }
+  .mission-box strong { color: var(--white); font-style: normal; }
+  .creds-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; justify-content: center; }
+  .cred-badge {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--white); border: 1.5px solid var(--gray-100);
+    border-radius: 10px; padding: 12px 18px;
+    font-weight: 700; font-size: .85rem; color: var(--navy);
+  }
+  .cred-badge-icon { width: 32px; height: 32px; background: var(--blue); border-radius: 6px; display: grid; place-items: center; }
+  .cred-badge-icon svg { stroke: white; }
+
+  /* ── REVIEWS PAGE ── */
+  .reviews-hero { background: linear-gradient(135deg, var(--navy), #142342); padding: 60px 20px 50px; }
+  .rating-summary {
+    display: flex; align-items: center; gap: 40px;
+    background: var(--white); border: 1.5px solid var(--gray-100);
+    border-radius: 16px; padding: 32px 36px; margin-bottom: 40px;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .big-rating { text-align: center; }
+  .big-rating-num { font-size: 4rem; font-weight: 900; color: var(--navy); line-height: 1; letter-spacing: -.04em; }
+  .big-stars { color: #F59E0B; font-size: 1.4rem; letter-spacing: 3px; }
+  .big-total { font-size: .82rem; color: var(--gray-500); margin-top: 4px; }
+  .rating-bars { flex: 1; min-width: 200px; }
+  .rating-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .rating-bar-label { font-size: .78rem; font-weight: 600; color: var(--gray-500); width: 30px; }
+  .rating-bar-track { flex: 1; height: 8px; background: var(--gray-100); border-radius: 4px; overflow: hidden; }
+  .rating-bar-fill { height: 100%; background: #F59E0B; border-radius: 4px; }
+  .reviews-big-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  .review-form-section { background: var(--gray-50); padding: 64px 20px; }
+  .review-form-card { background: var(--white); border-radius: 16px; padding: 40px; max-width: 680px; margin: 0 auto; box-shadow: 0 4px 24px rgba(10,22,40,.07); }
+  .review-form-card h3 { font-size: 1.4rem; font-weight: 900; margin-bottom: 6px; }
+  .review-form-card > p { color: var(--gray-500); margin-bottom: 28px; font-size: .92rem; }
+  .star-select { display: flex; gap: 8px; margin-bottom: 20px; }
+  .star-btn { font-size: 1.8rem; cursor: pointer; color: var(--gray-300); transition: color .1s, transform .1s; background: none; border: none; line-height: 1; }
+  .star-btn:hover, .star-btn.active { color: #F59E0B; transform: scale(1.15); }
+
+  /* ── CONTACT PAGE ── */
+  .contact-hero { background: linear-gradient(135deg, var(--navy), #142342); padding: 60px 20px 50px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .contact-info-card {
+    background: var(--navy); border-radius: 16px; padding: 36px;
+    height: fit-content;
+  }
+  .contact-info-card h3 { font-size: 1.25rem; font-weight: 900; color: var(--white); margin-bottom: 28px; }
+  .contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
+  .contact-detail-icon { width: 40px; height: 40px; background: rgba(255,255,255,.1); border-radius: 10px; display: grid; place-items: center; flex-shrink: 0; }
+  .contact-detail-icon svg { stroke: #7EB3FF; }
+  .contact-detail-content { font-size: .9rem; color: #A8C4E8; line-height: 1.6; }
+  .contact-detail-content strong { color: var(--white); display: block; font-size: .95rem; margin-bottom: 2px; }
+  .contact-detail-content a { color: #7EB3FF; text-decoration: none; }
+  .hours-table { width: 100%; }
+  .hours-table td { padding: 3px 0; font-size: .88rem; }
+  .hours-table td:first-child { color: #A8C4E8; width: 110px; }
+  .hours-table td:last-child { color: var(--white); font-weight: 600; }
+
+  /* ── FORMS ── */
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: .82rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; letter-spacing: .01em; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid var(--gray-100); border-radius: 9px;
+    font-family: var(--font); font-size: .9rem; color: var(--navy);
+    background: var(--white); transition: border-color .15s, box-shadow .15s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--blue); box-shadow: 0 0 0 3px rgba(30,77,140,.1);
+  }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-card { background: var(--white); border-radius: 16px; padding: 36px; box-shadow: 0 4px 24px rgba(10,22,40,.07); }
+  .form-card h3 { font-size: 1.2rem; font-weight: 900; margin-bottom: 6px; }
+  .form-card > p { color: var(--gray-500); font-size: .88rem; margin-bottom: 24px; }
+  .form-tabs { display: flex; background: var(--gray-50); border-radius: 10px; padding: 4px; margin-bottom: 24px; gap: 4px; }
+  .form-tab {
+    flex: 1; text-align: center; padding: 9px; border-radius: 7px;
+    font-size: .82rem; font-weight: 700; cursor: pointer;
+    color: var(--gray-500); transition: .15s; border: none; background: transparent; font-family: var(--font);
+  }
+  .form-tab.active { background: var(--white); color: var(--navy); box-shadow: 0 1px 6px rgba(10,22,40,.08); }
+  .form-panel { display: none; }
+  .form-panel.active { display: block; }
+  .success-msg {
+    display: none; background: #ECFDF5; border: 1.5px solid #A7F3D0;
+    border-radius: 10px; padding: 16px 20px; margin-top: 16px;
+    font-size: .88rem; color: #065F46; font-weight: 600; align-items: center; gap: 8px;
+  }
+  .success-msg.show { display: flex; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: var(--white);
+    padding: 56px 20px 32px;
+  }
+  .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+  .footer-brand-name { font-size: 1.5rem; font-weight: 900; letter-spacing: -.02em; margin-bottom: 12px; }
+  .footer-brand-name span { color: var(--red); }
+  .footer-desc { font-size: .85rem; color: #6B8BAD; line-height: 1.7; margin-bottom: 20px; }
+  .footer-phone { font-size: 1.4rem; font-weight: 900; color: var(--white); text-decoration: none; letter-spacing: -.02em; }
+  .footer-col h4 { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #6B8BAD; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: grid; gap: 8px; }
+  .footer-col ul a { font-size: .87rem; color: #A8C4E8; text-decoration: none; transition: color .15s; }
+  .footer-col ul a:hover { color: var(--white); }
+  .footer-bottom {
+    max-width: 1200px; margin: 40px auto 0;
+    padding-top: 24px; border-top: 1px solid rgba(255,255,255,.08);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: .78rem; color: #4A6580; flex-wrap: wrap; gap: 8px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about-story-grid { grid-template-columns: 1fr; }
+    .about-story-img { height: 260px; }
+    .map-inner { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .service-detail-card { grid-template-columns: 1fr; }
+    .service-detail-left { padding: 24px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero { padding: 56px 20px 52px; }
+    .hero h1 { font-size: 2.1rem; }
+    .hero-stats { gap: 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-stat-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .map-inner { grid-template-columns: 1fr; }
+    .rating-summary { flex-direction: column; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  📍 3387 Dixie Hwy, Hamilton, OH 45015 &nbsp;·&nbsp; <a href="tel:5138682467">(513) 868-2467</a> &nbsp;·&nbsp; Mon–Fri 8AM–5PM · Sat 8AM–2PM
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showPage('home')">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-4 10a2 2 0 1 0 4 0 2 2 0 0 0-4 0m6 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0M9 17h6m2-5h4l3 3v4"/></svg>
+      </div>
+      The <span>Shop</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" id="nav-home" class="active" onclick="showPage('home');return false;">Home</a></li>
+      <li><a href="#" id="nav-services" onclick="showPage('services');return false;">Services</a></li>
+      <li><a href="#" id="nav-about" onclick="showPage('about');return false;">About Us</a></li>
+      <li><a href="#" id="nav-reviews" onclick="showPage('reviews');return false;">Reviews</a></li>
+      <li><a href="#" id="nav-contact" class="nav-cta" onclick="showPage('contact');return false;">Schedule Service</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showPage('home');toggleMobile();return false;">Home</a>
+    <a href="#" onclick="showPage('services');toggleMobile();return false;">Services</a>
+    <a href="#" onclick="showPage('about');toggleMobile();return false;">About Us</a>
+    <a href="#" onclick="showPage('reviews');toggleMobile();return false;">Reviews</a>
+    <a href="#" onclick="showPage('contact');toggleMobile();return false;">Schedule Service</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ HOME PAGE ═══════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Now Open · Hamilton, Ohio
+      </div>
+      <h1>Honest Auto Repair<br><em>You Can Trust</em></h1>
+      <p class="hero-sub">From oil changes to engine diagnostics — straightforward repairs, fair pricing, and service you'll actually recommend to friends and family.</p>
+      <a href="tel:5138682467" class="hero-phone">
+        <div class="hero-phone-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4a2 2 0 0 1 1.99-2.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2z"/></svg>
+        </div>
+        (513) 868-2467
+      </a>
+      <p class="hero-hours">Mon–Fri: 8:00 AM – 5:00 PM &nbsp;|&nbsp; Saturday: 8:00 AM – 2:00 PM &nbsp;|&nbsp; Sunday: Closed</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary" onclick="showPage('contact');return false;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule Service
+        </a>
+        <a href="#" class="btn btn-secondary" onclick="showPage('contact');return false;">
+          Request a Quote
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">4.5★</div>
+          <div class="hero-stat-label">Google Rating</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">72+</div>
+          <div class="hero-stat-label">Reviews</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">30+</div>
+          <div class="hero-stat-label">Years Serving Hamilton</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">Fair</div>
+          <div class="hero-stat-label">Always Fair Pricing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        ASE-Certified Technicians
+      </div>
+      <div class="trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Fast Turnaround Times
+      </div>
+      <div class="trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6"/></svg>
+        Honest, Transparent Pricing
+      </div>
+      <div class="trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        All Makes & Models
+      </div>
+      <div class="trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Family-Owned & Operated
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section">
+    <div class="container">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Full-Service Auto Repair</h2>
+      <p class="section-sub">From routine maintenance to complex repairs, our experienced team handles it all — with care and transparency every step of the way.</p>
+      <div class="services-grid">
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Oil Changes</h3>
+          <p>Conventional and synthetic oil changes using quality filters to keep your engine running clean and efficient.</p>
+          <a href="#" class="service-link" onclick="showPage('services');return false;">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Brake Repair</h3>
+          <p>Pad replacements, rotor resurfacing, brake fluid, and full brake system inspections for safe stopping power.</p>
+          <a href="#" class="service-link" onclick="showPage('services');return false;">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <h3>Engine Diagnostics</h3>
+          <p>Check engine light on? Our advanced diagnostic equipment pinpoints the issue fast so you're not guessing.</p>
+          <a href="#" class="service-link" onclick="showPage('services');return false;">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h3>Tire Services</h3>
+          <p>Tire rotation, balancing, and replacement recommendations to maximize safety and tire life.</p>
+          <a href="#" class="service-link" onclick="showPage('services');return false;">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+          <h3>Suspension Repair</h3>
+          <p>Shocks, struts, and full suspension system repairs to restore a smooth, stable ride and proper handling.</p>
+          <a href="#" class="service-link" onclick="showPage('services');return false;">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Transmission Service</h3>
+          <p>Fluid changes, filter service, and transmission diagnostics to prevent costly breakdowns down the road.</p>
+          <a href="#" class="service-link" onclick="showPage('services');return false;">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Preventative Maintenance</h3>
+          <p>Scheduled maintenance that keeps your vehicle healthy and helps you avoid expensive repairs before they happen.</p>
+          <a href="#" class="service-link" onclick="showPage('services');return false;">Learn more →</a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
+          <h3>AC Repair</h3>
+          <p>AC recharge, leak detection, compressor repair — we'll have your air conditioning blowing cold again.</p>
+          <a href="#" class="service-link" onclick="showPage('services');return false;">Learn more →</a>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:36px;">
+        <a href="#" class="btn btn-blue" onclick="showPage('services');return false;">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section why-bg">
+    <div class="container text-center">
+      <span class="section-label">Why Choose The Shop</span>
+      <h2 class="section-title">Repair shops you can count on<br>are harder to find than they should be</h2>
+      <p class="section-sub">We built The Shop around the idea that every customer deserves straight answers, fair prices, and work they can feel confident in.</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-num">01 · Honest</div>
+          <h3>We'll Tell You the Truth</h3>
+          <p>We don't push unnecessary repairs. Our technicians explain exactly what your vehicle needs — and what can wait — so you make informed decisions.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">02 · Experienced</div>
+          <h3>Decades on Dixie Hwy</h3>
+          <p>The Shop has been serving Hamilton and Butler County for over 30 years, formerly as Robert's Auto. Our experience covers every make and model.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">03 · Trusted</div>
+          <h3>4.5 Stars on Google</h3>
+          <p>With over 72 Google reviews, our customers keep coming back — and sending their families. Our reputation is built on doing the job right.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">04 · Local</div>
+          <h3>Your Neighbors Own This Shop</h3>
+          <p>We're not a franchise. We're a family-owned business that lives, works, and drives in this community — and that matters to how we treat people.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED REVIEWS -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:8px;">
+        <div>
+          <span class="section-label">What Customers Say</span>
+          <h2 class="section-title">Real Reviews from Real Drivers</h2>
+        </div>
+        <a href="#" class="btn btn-outline btn-sm" onclick="showPage('reviews');return false;">See All Reviews</a>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Best mechanics in town. Straight shooters who actually care about your car and your wallet. I won't go anywhere else."</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#1E4D8C;">JM</div>
+            <div>
+              <div class="review-name">James M.</div>
+              <div class="review-google">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                Google Review
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"They pointed out just enough things to persuade me not to buy a used car I was looking at — saved me a lot of money. Great place. They even let me drive their old school Pontiac GTO around the lot. Fun times."</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#C41E3A;">DK</div>
+            <div>
+              <div class="review-name">Dan K.</div>
+              <div class="review-google">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                Google Review
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The difference in customer service and communication is night and day compared to other shops I've tried. They keep you informed the whole time. Highly recommend."</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#0A4D2E;">SR</div>
+            <div>
+              <div class="review-name">Sarah R.</div>
+              <div class="review-google">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                Google Review
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <div class="map-section">
+    <div class="map-inner container">
+      <div class="map-info">
+        <h2>Come See Us in Hamilton</h2>
+        <div class="map-detail">
+          <div class="map-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="map-detail-text">
+            <strong>3387 Dixie Hwy</strong>
+            Hamilton, OH 45015
+          </div>
+        </div>
+        <div class="map-detail">
+          <div class="map-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4a2 2 0 0 1 1.99-2.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2z"/></svg></div>
+          <div class="map-detail-text">
+            <strong><a href="tel:5138682467" style="color:#7EB3FF;">(513) 868-2467</a></strong>
+            Call to schedule or ask questions
+          </div>
+        </div>
+        <div class="map-detail">
+          <div class="map-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="map-detail-text">
+            <strong>Business Hours</strong>
+            Mon–Fri: 8:00 AM – 5:00 PM<br>
+            Saturday: 8:00 AM – 2:00 PM<br>
+            Sunday: Closed
+          </div>
+        </div>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="tel:5138682467" class="btn btn-primary btn-sm">Call Now</a>
+          <a href="https://maps.google.com/?q=3387+Dixie+Hwy+Hamilton+OH+45015" target="_blank" class="btn btn-secondary btn-sm" style="color:#A8C4E8;border-color:rgba(168,196,232,.4);">Get Directions</a>
+        </div>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3077.5!2d-84.5551!3d39.3712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884059e5f1f33333%3A0x1234!2s3387+Dixie+Hwy%2C+Hamilton%2C+OH+45015!5e0!3m2!1sen!2sus!4v1609459200000!5m2!1sen!2sus"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="The Shop location on Google Maps">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- END HOME PAGE -->
+
+<!-- ═══════════════════════════════ SERVICES PAGE ═══════════════════════════════ -->
+<div id="page-services" class="page">
+  <section class="services-hero">
+    <div class="container">
+      <span class="section-label">Our Services</span>
+      <h1>Auto Repair Done Right</h1>
+      <p>Comprehensive service for every make and model — with honest diagnostics and fair pricing.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="service-detail-grid">
+
+        <!-- Oil Changes -->
+        <div class="service-detail-card">
+          <div class="service-detail-left">
+            <div style="width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;display:grid;place-items:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <h3>Oil Changes</h3>
+          </div>
+          <div class="service-detail-right">
+            <p>Regular oil changes are the single most important thing you can do for your engine's longevity. We use quality conventional and synthetic oils paired with the right filter for your vehicle's specifications. Quick service with no unnecessary upsells.</p>
+            <ul class="benefits-list">
+              <li>Conventional & full-synthetic options</li>
+              <li>Multi-point inspection included</li>
+              <li>OEM-spec filter for your vehicle</li>
+              <li>Oil level and condition check</li>
+              <li>Fast turnaround — often same-day</li>
+            </ul>
+            <a href="#" class="btn btn-blue btn-sm" onclick="showPage('contact');return false;">Schedule Oil Change</a>
+          </div>
+        </div>
+
+        <!-- Brake Repair -->
+        <div class="service-detail-card">
+          <div class="service-detail-left">
+            <div style="width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;display:grid;place-items:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M4.93 4.93l14.14 14.14"/></svg>
+            </div>
+            <h3>Brake Repair</h3>
+          </div>
+          <div class="service-detail-right">
+            <p>Squealing, grinding, or a soft pedal? Don't wait on brakes. We inspect your entire brake system — pads, rotors, calipers, lines, and fluid — and recommend only what you actually need. No pressure, just honest assessment.</p>
+            <ul class="benefits-list">
+              <li>Brake pad replacement (all axles)</li>
+              <li>Rotor resurfacing or replacement</li>
+              <li>Caliper service and replacement</li>
+              <li>Brake fluid flush and bleed</li>
+              <li>ABS system diagnosis</li>
+            </ul>
+            <a href="#" class="btn btn-blue btn-sm" onclick="showPage('contact');return false;">Get Brake Inspection</a>
+          </div>
+        </div>
+
+        <!-- Engine Diagnostics -->
+        <div class="service-detail-card">
+          <div class="service-detail-left">
+            <div style="width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;display:grid;place-items:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Engine Diagnostics</h3>
+          </div>
+          <div class="service-detail-right">
+            <p>That check engine light could mean a loose gas cap or something more serious. We plug into your vehicle's OBD system and use our experience to accurately diagnose what's actually happening — not just what the code says.</p>
+            <ul class="benefits-list">
+              <li>OBD-II diagnostic scan</li>
+              <li>Check engine light diagnosis</li>
+              <li>Idle, misfires, and performance issues</li>
+              <li>Emission system diagnosis</li>
+              <li>Clear explanation of findings</li>
+            </ul>
+            <a href="#" class="btn btn-blue btn-sm" onclick="showPage('contact');return false;">Book Diagnostics</a>
+          </div>
+        </div>
+
+        <!-- Tire Services -->
+        <div class="service-detail-card">
+          <div class="service-detail-left">
+            <div style="width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;display:grid;place-items:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <h3>Tire Services</h3>
+          </div>
+          <div class="service-detail-right">
+            <p>Proper tire care extends the life of your tires, improves fuel economy, and keeps you safer on the road. We handle rotation, balancing, flat repair, and can help you find the right replacement tires for your driving habits and budget.</p>
+            <ul class="benefits-list">
+              <li>Tire rotation and balancing</li>
+              <li>Flat tire repair and plugging</li>
+              <li>Tread depth and wear inspection</li>
+              <li>Valve stem replacement</li>
+              <li>TPMS sensor service</li>
+            </ul>
+            <a href="#" class="btn btn-blue btn-sm" onclick="showPage('contact');return false;">Tire Service Appointment</a>
+          </div>
+        </div>
+
+        <!-- Suspension -->
+        <div class="service-detail-card">
+          <div class="service-detail-left">
+            <div style="width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;display:grid;place-items:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </div>
+            <h3>Suspension Repair</h3>
+          </div>
+          <div class="service-detail-right">
+            <p>Rough ride, pulling to one side, clunking over bumps? Your suspension system affects everything from handling to tire wear. We diagnose and repair shocks, struts, ball joints, tie rods, and all related components.</p>
+            <ul class="benefits-list">
+              <li>Shock and strut replacement</li>
+              <li>Ball joint and tie rod service</li>
+              <li>Sway bar and bushing replacement</li>
+              <li>Wheel alignment after suspension work</li>
+              <li>Steering component inspection</li>
+            </ul>
+            <a href="#" class="btn btn-blue btn-sm" onclick="showPage('contact');return false;">Suspension Inspection</a>
+          </div>
+        </div>
+
+        <!-- Transmission -->
+        <div class="service-detail-card">
+          <div class="service-detail-left">
+            <div style="width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;display:grid;place-items:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <h3>Transmission Service</h3>
+          </div>
+          <div class="service-detail-right">
+            <p>Transmission problems can become transmission replacements if left too long. We provide fluid services, filter changes, and full diagnostics so you know exactly where your transmission stands before any expensive surprises.</p>
+            <ul class="benefits-list">
+              <li>Transmission fluid flush and fill</li>
+              <li>Filter and pan gasket replacement</li>
+              <li>Shift quality diagnosis</li>
+              <li>Automatic & manual transmission service</li>
+              <li>Leak detection and repair</li>
+            </ul>
+            <a href="#" class="btn btn-blue btn-sm" onclick="showPage('contact');return false;">Schedule Transmission Service</a>
+          </div>
+        </div>
+
+        <!-- Preventative Maintenance -->
+        <div class="service-detail-card">
+          <div class="service-detail-left">
+            <div style="width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;display:grid;place-items:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Preventative Maintenance</h3>
+          </div>
+          <div class="service-detail-right">
+            <p>The best repair is the one that never has to happen. We follow manufacturer-recommended maintenance schedules and help you understand what your vehicle needs at every mileage milestone — keeping you on the road and out of the shop unnecessarily.</p>
+            <ul class="benefits-list">
+              <li>30/60/90k mile service packages</li>
+              <li>Air and cabin filter replacement</li>
+              <li>Spark plug and ignition service</li>
+              <li>Coolant system flush</li>
+              <li>Belt and hose inspection</li>
+            </ul>
+            <a href="#" class="btn btn-blue btn-sm" onclick="showPage('contact');return false;">Book Maintenance</a>
+          </div>
+        </div>
+
+        <!-- AC Repair -->
+        <div class="service-detail-card">
+          <div class="service-detail-left">
+            <div style="width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;display:grid;place-items:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+            </div>
+            <h3>AC Repair</h3>
+          </div>
+          <div class="service-detail-right">
+            <p>Ohio summers are no joke. Whether your AC is blowing warm air, making strange noises, or just not keeping up, we diagnose and repair the whole system — from refrigerant recharge to compressor replacement.</p>
+            <ul class="benefits-list">
+              <li>AC performance check and recharge</li>
+              <li>Refrigerant leak detection</li>
+              <li>Compressor diagnosis and replacement</li>
+              <li>Condenser and evaporator service</li>
+              <li>Cabin temperature system diagnosis</li>
+            </ul>
+            <a href="#" class="btn btn-blue btn-sm" onclick="showPage('contact');return false;">AC Service Appointment</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom CTA -->
+      <div style="background:var(--navy);border-radius:16px;padding:44px 40px;margin-top:48px;text-align:center;">
+        <h3 style="color:white;font-size:1.6rem;font-weight:900;letter-spacing:-.025em;margin-bottom:10px;">Don't See Your Issue Listed?</h3>
+        <p style="color:#A8C4E8;margin-bottom:28px;font-size:.95rem;">Call us or send a message — chances are we've seen it before and can help.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="tel:5138682467" class="btn btn-primary">(513) 868-2467</a>
+          <a href="#" class="btn btn-secondary" onclick="showPage('contact');return false;">Send a Message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════ ABOUT PAGE ═══════════════════════════════ -->
+<div id="page-about" class="page">
+  <section class="about-hero">
+    <div class="container">
+      <span class="section-label">Our Story</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:white;letter-spacing:-.03em;">Built on Honesty.<br>Earned by Trust.</h1>
+      <p style="color:#A8C4E8;margin-top:12px;font-size:1.05rem;">Serving Hamilton and Butler County for over three decades.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-story-grid">
+        <div>
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">From Robert's to The Shop</h2>
+          <p style="color:var(--gray-500);font-size:.95rem;line-height:1.8;margin-bottom:16px;">What started as Robert's Auto on Dixie Highway has grown into one of Hamilton's most trusted names in auto repair. For over 30 years, we've been the mechanic that customers call when something goes wrong — and more importantly, the one they call back when it gets fixed right.</p>
+          <p style="color:var(--gray-500);font-size:.95rem;line-height:1.8;margin-bottom:16px;">We rebranded as The Shop to better reflect who we've become: a full-service repair facility for the whole community — not just sales, not just quick services, but the kind of comprehensive, trustworthy mechanical work that keeps people's vehicles running year after year.</p>
+          <p style="color:var(--gray-500);font-size:.95rem;line-height:1.8;">We're still at the same address. Still the same commitment to honesty. Still the team that'll tell you what your car actually needs — including when the answer is "nothing right now."</p>
+        </div>
+        <div class="about-story-img">
+          <div class="about-story-img-inner">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-4 10a2 2 0 1 0 4 0 2 2 0 0 0-4 0m6 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0M9 17h6m2-5h4l3 3v4"/></svg>
+            <p>The Shop · Hamilton, OH</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-stat-row">
+        <div class="about-stat">
+          <div class="about-stat-num">30+</div>
+          <div class="about-stat-label">Years in Business</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">4.5★</div>
+          <div class="about-stat-label">Google Rating</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">All</div>
+          <div class="about-stat-label">Makes & Models</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section why-bg">
+    <div class="container">
+      <span class="section-label">The Team</span>
+      <h2 class="section-title">People Who Take Pride in the Work</h2>
+      <p class="section-sub">Our technicians have seen it all. They stay up to date on modern vehicles while bringing old-school attention to detail to every job.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="team-info"><h4>Lead Technician</h4><p>ASE Certified · 20+ Years</p></div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="team-info"><h4>Service Technician</h4><p>Brakes & Suspension Specialist</p></div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="team-info"><h4>Service Advisor</h4><p>Customer Service & Estimates</p></div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="team-info"><h4>Diagnostics Tech</h4><p>Engine & Electronics Expert</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section">
+    <div class="container">
+      <div class="mission-box">
+        <span class="section-label" style="color:#7EB3FF;">Our Mission</span>
+        <p style="margin-top:16px;">"To be the shop that <strong>Hamilton can rely on</strong> — where every customer gets honest answers, fair pricing, and repairs that actually last. We don't measure success by the size of a repair bill. We measure it by whether you come back, and whether you send your family."</p>
+      </div>
+
+      <div style="margin-top:56px;">
+        <span class="section-label">Credentials & Trust</span>
+        <h2 class="section-title">Why Customers Choose Us</h2>
+        <div class="creds-row" style="justify-content:flex-start;margin-top:24px;">
+          <div class="cred-badge">
+            <div class="cred-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            ASE-Certified Technicians
+          </div>
+          <div class="cred-badge">
+            <div class="cred-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            All Makes & Models
+          </div>
+          <div class="cred-badge">
+            <div class="cred-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            Family Owned & Operated
+          </div>
+          <div class="cred-badge">
+            <div class="cred-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6"/></svg></div>
+            Honest, Transparent Pricing
+          </div>
+          <div class="cred-badge">
+            <div class="cred-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            Free WiFi While You Wait
+          </div>
+          <div class="cred-badge">
+            <div class="cred-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            30+ Years in Hamilton
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════ REVIEWS PAGE ═══════════════════════════════ -->
+<div id="page-reviews" class="page">
+  <section class="reviews-hero">
+    <div class="container">
+      <span class="section-label">Customer Reviews</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:white;letter-spacing:-.03em;">What Hamilton Drivers Say</h1>
+      <p style="color:#A8C4E8;margin-top:12px;font-size:1.05rem;">4.5 stars · 72 Google reviews · Trusted since the 1990s</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="rating-summary">
+        <div class="big-rating">
+          <div class="big-rating-num">4.5</div>
+          <div class="big-stars">★★★★½</div>
+          <div class="big-total">Based on 72 reviews</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-row"><span class="rating-bar-label">5★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:68%"></div></div><span style="font-size:.75rem;color:var(--gray-500);width:28px;text-align:right;">68%</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">4★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:18%"></div></div><span style="font-size:.75rem;color:var(--gray-500);width:28px;text-align:right;">18%</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">3★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:6%"></div></div><span style="font-size:.75rem;color:var(--gray-500);width:28px;text-align:right;">6%</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">2★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:3%"></div></div><span style="font-size:.75rem;color:var(--gray-500);width:28px;text-align:right;">3%</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">1★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:5%"></div></div><span style="font-size:.75rem;color:var(--gray-500);width:28px;text-align:right;">5%</span></div>
+        </div>
+        <div>
+          <p style="font-size:.85rem;color:var(--gray-500);margin-bottom:14px;">Have a great experience?</p>
+          <a href="https://search.google.com/local/writereview?placeid=ChIJ" target="_blank" class="btn btn-blue btn-sm">Leave a Google Review</a>
+        </div>
+      </div>
+
+      <div class="reviews-big-grid">
+        <!-- 8 review cards -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Best mechanics in town, thanks for the service guys. Wouldn't take my truck anywhere else."</p>
+          <div class="review-author"><div class="review-avatar" style="background:#1E4D8C;">JM</div><div><div class="review-name">James M.</div><div class="review-meta">Hamilton, OH · Google</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"They pointed out just enough issues to save me from buying a bad used car. Great honest guys. Also got to drive their old school GTO — absolutely loved it."</p>
+          <div class="review-author"><div class="review-avatar" style="background:#C41E3A;">DK</div><div><div class="review-name">Dan K.</div><div class="review-meta">Hamilton, OH · Google</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The difference in customer service and communication is night and day compared to the last shop I used. They explained everything clearly and didn't pressure me."</p>
+          <div class="review-author"><div class="review-avatar" style="background:#0A4D2E;">SR</div><div><div class="review-name">Sarah R.</div><div class="review-meta">Hamilton, OH · Google</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Brought my car in for a brake noise. They fixed it quickly and didn't try to sell me anything I didn't need. Fair pricing, friendly staff."</p>
+          <div class="review-author"><div class="review-avatar" style="background:#7C3AED;">TW</div><div><div class="review-name">Tom W.</div><div class="review-meta">Fairfield, OH · Google</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"My whole family comes here. They've been around forever and you can tell they actually care about doing things right the first time."</p>
+          <div class="review-author"><div class="review-avatar" style="background:#B45309;">MH</div><div><div class="review-name">Michelle H.</div><div class="review-meta">Hamilton, OH · Google</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">"Solid shop with good pricing on oil changes. Wait time can be a bit longer on busy days but the quality of work makes it worth it."</p>
+          <div class="review-author"><div class="review-avatar" style="background:#065F46;">CL</div><div><div class="review-name">Chris L.</div><div class="review-meta">Hamilton, OH · Google</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Found this place after my regular mechanic retired. They've earned my trust quickly — honest about what's needed, quick service, and very reasonable."</p>
+          <div class="review-author"><div class="review-avatar" style="background:#1E40AF;">LB</div><div><div class="review-name">Lisa B.</div><div class="review-meta">Oxford, OH · Google</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The check engine light had been on for months. Brought it in and they diagnosed it same day and had it fixed by end of week. Clear communication throughout."</p>
+          <div class="review-author"><div class="review-avatar" style="background:#9D174D;">RN</div><div><div class="review-name">Rob N.</div><div class="review-meta">Hamilton, OH · Google</div></div></div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:36px;">
+        <a href="https://search.google.com/local/reviews?placeid=ChIJ" target="_blank" class="btn btn-outline">See All 72 Reviews on Google</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Review Form -->
+  <div class="review-form-section">
+    <div class="review-form-card">
+      <h3>Share Your Experience</h3>
+      <p>Tell us (and your neighbors) about your visit to The Shop.</p>
+      <div class="star-select" id="starSelect">
+        <button class="star-btn" onclick="setStars(1)" type="button">★</button>
+        <button class="star-btn" onclick="setStars(2)" type="button">★</button>
+        <button class="star-btn" onclick="setStars(3)" type="button">★</button>
+        <button class="star-btn" onclick="setStars(4)" type="button">★</button>
+        <button class="star-btn" onclick="setStars(5)" type="button">★</button>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith"></div>
+        <div class="form-group"><label>Vehicle (optional)</label><input type="text" placeholder="2019 Honda Accord"></div>
+      </div>
+      <div class="form-group"><label>Your Review</label><textarea placeholder="What brought you in? How was the experience?"></textarea></div>
+      <button class="btn btn-primary" onclick="submitReview()">Submit Review</button>
+      <div class="success-msg" id="reviewSuccess">✓ Thank you! Your review has been submitted.</div>
+      <p style="font-size:.78rem;color:var(--gray-500);margin-top:16px;">You can also leave a review directly on <a href="https://search.google.com/local/writereview?placeid=ChIJ" target="_blank" style="color:var(--blue);">Google</a> to help other drivers in Hamilton find us.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ CONTACT PAGE ═══════════════════════════════ -->
+<div id="page-contact" class="page">
+  <section class="contact-hero">
+    <div class="container">
+      <span class="section-label">Contact Us</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:white;letter-spacing:-.03em;">Let's Get You<br>Back on the Road</h1>
+      <p style="color:#A8C4E8;margin-top:12px;font-size:1.05rem;">Schedule service, request a quote, or just ask a question.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Info -->
+        <div>
+          <div class="contact-info-card">
+            <h3>Contact Information</h3>
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4a2 2 0 0 1 1.99-2.18H6.6a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2z"/></svg></div>
+              <div class="contact-detail-content">
+                <strong>Phone</strong>
+                <a href="tel:5138682467">(513) 868-2467</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="contact-detail-content">
+                <strong>Address</strong>
+                3387 Dixie Hwy<br>Hamilton, OH 45015
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="contact-detail-content">
+                <strong>Business Hours</strong>
+                <table class="hours-table">
+                  <tr><td>Monday</td><td>8:00 AM – 5:00 PM</td></tr>
+                  <tr><td>Tuesday</td><td>8:00 AM – 5:00 PM</td></tr>
+                  <tr><td>Wednesday</td><td>8:00 AM – 5:00 PM</td></tr>
+                  <tr><td>Thursday</td><td>8:00 AM – 5:00 PM</td></tr>
+                  <tr><td>Friday</td><td>8:00 AM – 5:00 PM</td></tr>
+                  <tr><td>Saturday</td><td>8:00 AM – 2:00 PM</td></tr>
+                  <tr><td>Sunday</td><td>Closed</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div style="margin-top:20px;border-radius:14px;overflow:hidden;height:260px;border:2px solid var(--gray-100);">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3077.5!2d-84.5551!3d39.3712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884059e5f1f33333%3A0x1234!2s3387+Dixie+Hwy%2C+Hamilton%2C+OH+45015!5e0!3m2!1sen!2sus!4v1609459200000!5m2!1sen!2sus"
+              width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="The Shop map">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Forms -->
+        <div class="form-card">
+          <h3>Get In Touch</h3>
+          <p>Schedule your appointment, request a quote, or send us a question.</p>
+          <div class="form-tabs">
+            <button class="form-tab active" onclick="switchTab('schedule')">Schedule Service</button>
+            <button class="form-tab" onclick="switchTab('quote')">Request Quote</button>
+            <button class="form-tab" onclick="switchTab('message')">Message Us</button>
+          </div>
+
+          <!-- Schedule -->
+          <div class="form-panel active" id="panel-schedule">
+            <div class="form-row">
+              <div class="form-group"><label>First Name *</label><input type="text" placeholder="Jane"></div>
+              <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Smith"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Phone *</label><input type="tel" placeholder="(513) 555-0100"></div>
+              <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Vehicle Year & Make</label><input type="text" placeholder="2018 Toyota Camry"></div>
+              <div class="form-group"><label>Mileage (approx.)</label><input type="text" placeholder="67,000"></div>
+            </div>
+            <div class="form-group">
+              <label>Service Needed *</label>
+              <select>
+                <option value="">Select a service...</option>
+                <option>Oil Change</option>
+                <option>Brake Repair</option>
+                <option>Engine Diagnostics / Check Engine Light</option>
+                <option>Tire Service</option>
+                <option>Suspension Repair</option>
+                <option>Transmission Service</option>
+                <option>Preventative Maintenance</option>
+                <option>AC Repair</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+              <div class="form-group">
+                <label>Preferred Time</label>
+                <select>
+                  <option>Morning (8–11 AM)</option>
+                  <option>Midday (11 AM–2 PM)</option>
+                  <option>Afternoon (2–5 PM)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group"><label>Additional Notes</label><textarea placeholder="Describe the issue or any other details..."></textarea></div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitForm('scheduleSuccess')">Schedule Appointment</button>
+            <div class="success-msg" id="scheduleSuccess">✓ Appointment request received! We'll call you within 1 business day to confirm.</div>
+          </div>
+
+          <!-- Quote -->
+          <div class="form-panel" id="panel-quote">
+            <div class="form-row">
+              <div class="form-group"><label>Name *</label><input type="text" placeholder="Your name"></div>
+              <div class="form-group"><label>Phone *</label><input type="tel" placeholder="(513) 555-0100"></div>
+            </div>
+            <div class="form-group"><label>Vehicle</label><input type="text" placeholder="Year, Make, Model"></div>
+            <div class="form-group">
+              <label>Service / Issue *</label>
+              <select>
+                <option value="">What do you need a quote for?</option>
+                <option>Oil Change</option>
+                <option>Brake Job</option>
+                <option>Engine Work</option>
+                <option>Transmission Service</option>
+                <option>Suspension</option>
+                <option>AC Repair</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Describe the Issue</label><textarea placeholder="Tell us what's going on with your vehicle — as much detail as you have..."></textarea></div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitForm('quoteSuccess')">Request Quote</button>
+            <div class="success-msg" id="quoteSuccess">✓ Quote request received! We'll reach out with an estimate shortly.</div>
+          </div>
+
+          <!-- Message -->
+          <div class="form-panel" id="panel-message">
+            <div class="form-row">
+              <div class="form-group"><label>Name *</label><input type="text" placeholder="Your name"></div>
+              <div class="form-group"><label>Phone or Email *</label><input type="text" placeholder="How to reach you"></div>
+            </div>
+            <div class="form-group"><label>Message *</label><textarea style="min-height:160px;" placeholder="Ask a question, describe a problem, or just say hi..."></textarea></div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitForm('messageSuccess')">Send Message</button>
+            <div class="success-msg" id="messageSuccess">✓ Message sent! We'll get back to you as soon as possible.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">The <span>Shop</span></div>
+      <p class="footer-desc">Honest auto repair serving Hamilton and Butler County for over 30 years. Formerly Robert's Auto — same trusted team, same Dixie Highway address.</p>
+      <a href="tel:5138682467" class="footer-phone">(513) 868-2467</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('services');return false;">Oil Changes</a></li>
+        <li><a href="#" onclick="showPage('services');return false;">Brake Repair</a></li>
+        <li><a href="#" onclick="showPage('services');return false;">Engine Diagnostics</a></li>
+        <li><a href="#" onclick="showPage('services');return false;">Tire Services</a></li>
+        <li><a href="#" onclick="showPage('services');return false;">Suspension Repair</a></li>
+        <li><a href="#" onclick="showPage('services');return false;">AC Repair</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
+        <li><a href="#" onclick="showPage('about');return false;">About Us</a></li>
+        <li><a href="#" onclick="showPage('reviews');return false;">Reviews</a></li>
+        <li><a href="#" onclick="showPage('contact');return false;">Schedule Service</a></li>
+        <li><a href="#" onclick="showPage('contact');return false;">Request a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <ul>
+        <li><a>Mon–Fri: 8 AM – 5 PM</a></li>
+        <li><a>Saturday: 8 AM – 2 PM</a></li>
+        <li><a>Sunday: Closed</a></li>
+      </ul>
+      <div style="margin-top:20px;">
+        <h4>Address</h4>
+        <ul>
+          <li><a href="https://maps.google.com/?q=3387+Dixie+Hwy+Hamilton+OH+45015" target="_blank">3387 Dixie Hwy<br>Hamilton, OH 45015</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Shop (formerly Robert's). All rights reserved.</span>
+    <span>3387 Dixie Hwy · Hamilton, OH 45015 · <a href="tel:5138682467" style="color:#4A6580;">(513) 868-2467</a></span>
+  </div>
+</footer>
+
+<script>
+  // ── Page Navigation ──
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    const navEl = document.getElementById('nav-' + name);
+    if (navEl) navEl.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Mobile Menu ──
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // ── Form Tabs ──
+  function switchTab(panel) {
+    document.querySelectorAll('.form-tab').forEach((t, i) => {
+      t.classList.toggle('active', ['schedule','quote','message'][i] === panel);
+    });
+    document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + panel).classList.add('active');
+  }
+
+  // ── Form Submission ──
+  function submitForm(successId) {
+    const el = document.getElementById(successId);
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), 5000);
+  }
+
+  // ── Review Stars ──
+  let currentStars = 0;
+  function setStars(n) {
+    currentStars = n;
+    document.querySelectorAll('#starSelect .star-btn').forEach((b, i) => {
+      b.classList.toggle('active', i < n);
+    });
+  }
+  function submitReview() {
+    document.getElementById('reviewSuccess').classList.add('show');
+    setTimeout(() => document.getElementById('reviewSuccess').classList.remove('show'), 5000);
+  }
+
+  // ── Close mobile menu on outside click ──
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobileMenu');
+    const nav = document.querySelector('nav');
+    if (menu.classList.contains('open') && !nav.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
